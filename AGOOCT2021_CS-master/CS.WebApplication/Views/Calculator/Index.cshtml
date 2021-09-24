@@ -1,0 +1,41 @@
+﻿@model CS.WebApplication.Models.OperationModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Calculadora</h2>
+
+<form method="post" action="/Calculator/Index">
+    <table style="width:100%">
+
+        <tr>
+            <td>Parametro #1</td>
+            <td><input type="text" id="Param1" name="Param1" value="@Model.Param1" /> </td>
+
+            <td>
+                <select id="OperationSymbol" name="OperationSymbol">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </td>
+
+            <td>Parametro #2</td>
+            <td><input type="text" id="Param2" name="Param2" value="@Model.Param2" /> </td>
+        </tr>
+
+
+        <tr>
+            <td></td>
+            <td colspan="5"><button type="submit" style="background-color:aquamarine">Calcular</button> &nbsp;<button type="reset">Cancelar</button> </td>
+        </tr>
+
+    </table>
+
+</form>
+
+@if (Model != null)
+{
+    <h5>@Model.Result</h5>
+}
